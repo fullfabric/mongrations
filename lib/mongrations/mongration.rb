@@ -9,7 +9,7 @@ module Mongrations
       end
 
       def down_with_benchmarks #:nodoc:
-        migrate(:up)
+        migrate(:down)
       end
 
       # Execute this migration in the named direction
