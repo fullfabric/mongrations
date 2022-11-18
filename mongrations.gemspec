@@ -4,8 +4,8 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jonbell-mongrations}
-  s.version = "0.1.0"
+  s.name = %q{mongrations}
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jonbell"]
@@ -23,18 +23,18 @@ necessary}
      "README.markdown",
      "Rakefile",
      "VERSION",
-     "generators/mongration/mongration_generator.rb",
-     "generators/mongration/templates/mongration.rb",
+     "generators/mongrations/templates/mongration.rb",
+     "generators/mongrations_generator.rb",
      "init.rb",
      "install.rb",
-     "lib/mongo_mapper/exceptions.rb",
-     "lib/mongo_mapper/migration_proxy.rb",
-     "lib/mongo_mapper/migrator.rb",
-     "lib/mongo_mapper/mongration.rb",
-     "lib/mongo_mapper/schema_migration.rb",
      "lib/mongrations.rb",
+     "lib/mongrations/exceptions.rb",
+     "lib/mongrations/migration_proxy.rb",
+     "lib/mongrations/migrator.rb",
+     "lib/mongrations/mongration.rb",
      "lib/mongrations/railtie.rb",
-     "lib/tasks/mongo.rake",
+     "lib/mongrations/schema_migration.rb",
+     "mongrations.gemspec",
      "tasks/mongo.rake",
      "test/mongrations_test.rb",
      "test/test_helper.rb",

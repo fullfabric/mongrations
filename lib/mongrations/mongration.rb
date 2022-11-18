@@ -1,10 +1,14 @@
-module MongoMapper
+module Mongrations
   class Mongration
     @@verbose = true
     cattr_accessor :verbose
 
     class << self
       def up_with_benchmarks #:nodoc:
+        migrate(:up)
+      end
+
+      def down_with_benchmarks #:nodoc:
         migrate(:up)
       end
 

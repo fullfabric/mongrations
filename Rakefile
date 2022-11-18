@@ -6,7 +6,7 @@ require 'rake/rdoctask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "jonbell-mongrations"
+    gem.name = "mongrations"
     gem.summary = %Q{Data migrating for MongoMapper}
     gem.description = %Q{Mongrations aims to be similar to ActiveRecord's data migrations, except
 instead of worrying about schema changes, offering a way to change data when

@@ -1,28 +1,28 @@
-module MongoMapper
-  class MongoMapperError < StandardError; end
+module Mongrations
+  class MongrationError < ::MongoMapper::Error; end
 
-  class IrreversibleMigration < MongoMapperError#:nodoc:
+  class IrreversibleMigration < MongrationError#:nodoc:
   end
 
-  class DuplicateMigrationVersionError < MongoMapperError#:nodoc:
+  class DuplicateMigrationVersionError < MongrationError#:nodoc:
     def initialize(version)
       super("Multiple migrations have the version number #{version}")
     end
   end
 
-  class DuplicateMigrationNameError < MongoMapperError#:nodoc:
+  class DuplicateMigrationNameError < MongrationError#:nodoc:
     def initialize(name)
       super("Multiple migrations have the name #{name}")
     end
   end
 
-  class UnknownMigrationVersionError < MongoMapperError #:nodoc:
+  class UnknownMigrationVersionError < MongrationError #:nodoc:
     def initialize(version)
       super("No migration with version number #{version}")
     end
   end
 
-  class IllegalMigrationNameError < MongoMapperError#:nodoc:
+  class IllegalMigrationNameError < MongrationError#:nodoc:
     def initialize(name)
       super("Illegal name for migration file: #{name}\n\t(only lower case letters, numbers, and '_' allowed)")
     end

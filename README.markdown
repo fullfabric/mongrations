@@ -23,9 +23,9 @@ To generate a mongration, just do:
 
 To run it, do
 
-`rake db:mongrate`
+`rake mongo:mongrate`
 
-Other rake tasks added have been `db:mongrate:redo`, `db:mongrate:up`, `db:mongrate:down`, `db:mongrate:rollback`.
+Other rake tasks added have been `mongo:mongrate:redo`, `mongo:mongrate:up`, `mongo:mongrate:down`, `mongo:mongrate:rollback`.
 
 
 Dependencies

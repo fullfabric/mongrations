@@ -1,4 +1,4 @@
-module MongoMapper
+module Mongrations
   class Migrator#:nodoc:
     class << self
       def migrate(migrations_path, target_version = nil)
@@ -32,7 +32,7 @@ module MongoMapper
       end
 
       def get_all_versions
-        MongoMapper::SchemaMigration.all.map{|sm| sm.version.to_i}.sort
+        Mongrations::SchemaMigration.all.map{|sm| sm.version.to_i}.sort
       end
 
       def current_version
@@ -114,11 +114,11 @@ module MongoMapper
             raise DuplicateMigrationNameError.new(name.camelize) 
           end
           
-          klasses << returning(MigrationProxy.new) do |migration|
-            migration.name     = name.camelize
-            migration.version  = version
-            migration.filename = file
-          end
+          migration = MigrationProxy.new
+          migration.name     = name.camelize
+          migration.version  = version
+          migration.filename = file
+          klasses << migration
         end
         
         migrations = migrations.sort_by(&:version)
@@ -140,11 +140,11 @@ module MongoMapper
         @migrated_versions ||= []
         if down?
           @migrated_versions.delete(version.to_i)
-          sm = MongoMapper::SchemaMigration.find_by_version(version.to_s)
+          sm = Mongrations::SchemaMigration.find_by_version(version.to_s)
           sm && sm.delete
         else
           @migrated_versions.push(version.to_i).sort!
-          MongoMapper::SchemaMigration.create(:version => version)
+          Mongrations::SchemaMigration.create(:version => version)
         end
       end
 

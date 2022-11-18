@@ -1,6 +1,6 @@
 # MigrationProxy is used to defer loading of the actual migration classes
 # until they are needed
-module MongoMapper
+module Mongrations
   class MigrationProxy
 
     attr_accessor :name, :version, :filename
