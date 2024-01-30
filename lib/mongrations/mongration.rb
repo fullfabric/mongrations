@@ -44,7 +44,8 @@ module Mongrations
           case sym
             when :up, :down
               klass = (class << self; self; end)
-              klass.send(:alias_method_chain, sym, "benchmarks")
+              klass.send(:alias_method, :"#{sym}_without_benchmarks", sym)
+              klass.send(:alias_method, sym, :"#{sym}_with_benchmarks")
           end
         ensure
           @ignore_new_methods = false
