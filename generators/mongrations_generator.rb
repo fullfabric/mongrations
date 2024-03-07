@@ -10,6 +10,6 @@ class MongrationGenerator < Rails::Generators::NamedBase
   end
 
   def create_mongration
-    migration_template('mongration.rb', "db/mongrations/#{file_name}")
+    migration_template('mongration.rb', "db/mongrations/#{file_name}.rb")
   end
 end
